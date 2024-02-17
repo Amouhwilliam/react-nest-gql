@@ -1,0 +1,49 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreatePetInput {
+  name: String!
+  ownerId: Int!
+  type: String
+}
+
+input CreateUserInput {
+  """Name of a dog owner"""
+  name: String!
+}
+
+type Mutation {
+  createPet(createPetInput: CreatePetInput!): Pet!
+  createUser(createUserInput: CreateUserInput!): User!
+  removeUser(id: Int!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+}
+
+type Pet {
+  id: Int!
+  name: String!
+  owner: User!
+  ownerId: Int!
+  type: String
+}
+
+type Query {
+  getPets(id: Int!): Pet!
+  pets: [Pet!]!
+  user(id: Int!): User!
+  users: [User!]!
+}
+
+input UpdateUserInput {
+  id: Int!
+
+  """Name of a dog owner"""
+  name: String!
+}
+
+type User {
+  id: Int!
+  name: String!
+  pets: [Pet!]
+}
